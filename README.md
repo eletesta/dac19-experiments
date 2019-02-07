@@ -6,8 +6,14 @@ python3 -m pip install -r requirements.txt
 
 ### Run experiments
 
+EPFL benchmakrs: 
+
 ```
-python3 run.py
+python3 run_EPFL.py
 ```
 
-## add some things about the paper and links, references, bla bla 
+## Create table with results 
+
+```
+python3 table_EPFL.py
+```
