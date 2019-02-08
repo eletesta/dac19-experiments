@@ -2,7 +2,6 @@ import cirkit
 import json
 import os
 
-#benchmarks = ["test"]
 benchmarks = os.listdir('./benchmarks_EPFL/')
 
 print("Load database")
@@ -12,8 +11,8 @@ print("Loaded database")
 for benchmark in benchmarks:
     print("*******************")
     benchmark = benchmark.split('.v')[0]
-    #if os.path.exists(f"results_EPFL/{benchmark}.v"):
-        #continue
+    if os.path.exists(f"results_EPFL/{benchmark}.v"):
+        continue
 
     cirkit.read_verilog(filename=f"benchmarks_EPFL/{benchmark}.v", xag=True)
     ps = cirkit.ps(xag=True, silent=True)
@@ -68,5 +67,3 @@ for benchmark in benchmarks:
     with open(f"results_EPFL/{benchmark}.json", "w") as f:
         f.write(json.dumps({'and_init': and_init, 'xor_init': xor_init, 'and_final': and_final, 'xor_final': xor_final, 'time_total': time_total, 'and_final_sat': and_final_sat, 'xor_final_sat': xor_final_sat, 'time_total_sat': time_total_sat}))
 
-
-# add benchmarks 
