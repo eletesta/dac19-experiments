@@ -1,10 +1,10 @@
-We present here a python script to run the experiments presented in [''Reducing the Multiplicative Complexity in Logic Networks for Cryptography and Security Applications'', DAC 2019](). This work proposes a logic synthesis
+This work proposes a logic synthesis
 algorithm and tool to minimize the number of AND gates in a
 logic network composed of AND, XOR, and inverter gates (XAGs). Reducing the number of AND gates plays a central role in many
 cryptography and security applications.
-The method exploits cut enumeration and cut rewriting, and it has been implemented in [mockturtle](https://github.com/lsils/mockturtle). The database for cut rewriting has been obtained starting from the one available at [https://github.com/usnistgov/Circuits/tree/master/slp](https://github.com/usnistgov/Circuits/tree/master/slp). 
+The method exploits cut enumeration and cut rewriting, and it has been implemented in [mockturtle](https://github.com/lsils/mockturtle). The database for the optimum implementation of 6-input functions used for cut rewriting has been obtained starting from the one available at [https://github.com/usnistgov/Circuits/tree/master/slp](https://github.com/usnistgov/Circuits/tree/master/slp). 
 
-We present results both on the [EPFL benchmarks](https://github.com/lsils/benchmarks) and on benchmarks aiming at crypthographic applications available at [https://homes.esat.kuleuven.be/~nsmart/MPC/](https://homes.esat.kuleuven.be/~nsmart/MPC/). 
+
 
 ### Installation
 
@@ -28,6 +28,9 @@ python3 run_crypto.py
 
 ### Create table with results 
 
+The tables are both printed on the screen and saved in .tex format. 
+
+
 EPFL benchmarks:
 
 ```
@@ -39,3 +42,9 @@ MPC anf FHE benchmarks:
 ```
 python3 table_crypto.py
 ```
+### Benchmarks  
+
+We apply our algorithm both on the [EPFL benchmarks](https://github.com/lsils/benchmarks) and on benchmarks for crypthographic applications available at [https://homes.esat.kuleuven.be/~nsmart/MPC/](https://homes.esat.kuleuven.be/~nsmart/MPC/). 
+
+### Reference
+The results are described in the paper by E. Testa, M. Soeken, L. Amaru and G. De Micheli: *Reducing the Multiplicative Complexity in Logic Networks for Cryptography and Security Applications*, in: DAC 2019.
