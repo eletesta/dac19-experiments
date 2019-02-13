@@ -28,7 +28,7 @@ python3 run_crypto.py
 
 ### Create table with results 
 
-The tables are both printed on the screen and saved in .tex format. 
+The tables are saved in .tex format. 
 
 
 EPFL benchmarks:
