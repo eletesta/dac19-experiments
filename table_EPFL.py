@@ -16,7 +16,6 @@ geomean_andfinal = 1
 geomean_andfinal_sat = 1
 
 for index, js in enumerate(sorted(json_files)):
-    i = i + 1
     if "DS" in js: 
         continue
     if "arbiter" in js: #or "ctrl" or "cavlc" or "dec" or "i2c" or "int" or "mem" or "priority" or "router" or "voter" in js: 
@@ -39,6 +38,7 @@ for index, js in enumerate(sorted(json_files)):
         continue
     if "voter" in js: 
         continue
+    i = i + 1
     with open(os.path.join(path, js)) as json_file:
         json_text = json.load(json_file)
 
@@ -83,7 +83,6 @@ geomean_andfinal = 1
 geomean_andfinal_sat = 1
 
 for index, js in enumerate(sorted(json_files)):
-    i = i + 1
     if "DS" in js: 
         continue
     if "adder" in js: 
@@ -102,6 +101,9 @@ for index, js in enumerate(sorted(json_files)):
         continue
     if "square" in js: 
         continue 
+    if "sin" in js: 
+        continue
+    i = i + 1
     with open(os.path.join(path, js)) as json_file:
         json_text = json.load(json_file)
 
