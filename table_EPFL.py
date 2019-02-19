@@ -1,8 +1,8 @@
 import pandas as pd 
 import json
+import math
 import os
-
-
+    
 path = 'results_EPFL/'
 output_file = "results_EPFL.tex"
 opened_output_file = open(output_file, 'w')
@@ -68,7 +68,9 @@ data.final_and = data.final_and.astype(int)
 data.final_xor = data.final_xor.astype(int)
 data.final_and_sat = data.final_and_sat.astype(int)
 data.final_xor_sat = data.final_xor_sat.astype(int)
+data.improvement = round(data.improvement, 0)
 data.improvement = data.improvement.astype(int)
+data.improvement_sat = round(data.improvement_sat, 0)
 data.improvement_sat = data.improvement_sat.astype(int)
 data = data.round({'runtime' : 2, 'runtime_sat' : 2})
 data['improvement'] = data['improvement'].astype(str) + ' %'
@@ -134,7 +136,9 @@ data2.final_and = data2.final_and.astype(int)
 data2.final_xor = data2.final_xor.astype(int)
 data2.final_and_sat = data2.final_and_sat.astype(int)
 data2.final_xor_sat = data2.final_xor_sat.astype(int)
+data2.improvement = round(data2.improvement, 0)
 data2.improvement = data2.improvement.astype(int)
+data2.improvement_sat = round(data2.improvement_sat, 0)
 data2.improvement_sat = data2.improvement_sat.astype(int)
 data2 = data2.round({'runtime' : 2, 'runtime_sat' : 2})
 data2['improvement'] = data2['improvement'].astype(str) + ' %'
