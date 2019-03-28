@@ -1,3 +1,4 @@
 pybind11
+wheel
 cirkit==3.0a2.dev4
 pandas
