@@ -8,6 +8,7 @@ print("Load database")
 cirkit.minmc(load="db")
 print("Loaded database")
 
+count = 1
 for benchmark in benchmarks:
     print("*******************")
     benchmark = benchmark.split('.v')[0]
@@ -46,7 +47,7 @@ for benchmark in benchmarks:
     xor_init_sat = xor_init
     
     while and_final_sat < and_init_sat:
-        
+        count = count + 1
         gates = cirkit.print_gates(xag=True)
         
         and_init_sat = gates['and']
@@ -65,5 +66,5 @@ for benchmark in benchmarks:
     cirkit.store(clear=True, xag=True)
     
     with open(f"results_EPFL/{benchmark}.json", "w") as f:
-        f.write(json.dumps({'and_init': and_init, 'xor_init': xor_init, 'and_final': and_final, 'xor_final': xor_final, 'time_total': time_total, 'and_final_sat': and_final_sat, 'xor_final_sat': xor_final_sat, 'time_total_sat': time_total_sat}))
+        f.write(json.dumps({'and_init': and_init, 'xor_init': xor_init, 'and_final': and_final, 'xor_final': xor_final, 'time_total': time_total, 'and_final_sat': and_final_sat, 'xor_final_sat': xor_final_sat, 'time_total_sat': time_total_sat, 'iter': count}))
 
