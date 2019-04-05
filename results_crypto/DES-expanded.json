@@ -1,1 +1,1 @@
-{"and_init": 18175, "xor_init": 1348, "and_final": 18017, "xor_final": 1531, "time_total": 218.917199169, "and_final_sat": 17915, "xor_final_sat": 1609, "time_total_sat": 10036.019219860997}
+{"and_init": 18175, "xor_init": 1348, "and_final": 17403, "xor_final": 4168, "time_total": 256.68842539, "and_final_sat": 15126, "xor_final_sat": 11263, "time_total_sat": 9262.725955344002}
