@@ -2,7 +2,7 @@ This work proposes a logic synthesis
 algorithm and tool to minimize the number of AND gates in a
 logic network composed of AND, XOR, and inverter gates (XAGs). Reducing the number of AND gates plays a central role in many
 cryptography and security applications.
-The method exploits cut enumeration and cut rewriting, and it has been implemented in [mockturtle](https://github.com/lsils/mockturtle). The database for the optimum implementation of 6-input functions used for cut rewriting has been obtained starting from the one available at [https://github.com/usnistgov/Circuits/tree/master/slp](https://github.com/usnistgov/Circuits/tree/master/slp). 
+The method exploits cut enumeration and cut rewriting, and it has been implemented in [mockturtle](https://github.com/lsils/mockturtle). The database for the optimum implementation of 6-input functions used for cut rewriting has been obtained starting from the one available at [https://github.com/usnistgov/Circuits/tree/master/data/slp](https://github.com/usnistgov/Circuits/tree/master/data/slp). 
 
 
 
