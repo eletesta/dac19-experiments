@@ -1,3 +1,3 @@
 pybind11
-cirkit==3.0a2.dev4
+cirkit==3.0a2.dev5
 pandas
