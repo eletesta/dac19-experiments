@@ -8,9 +8,16 @@ The method exploits cut enumeration and cut rewriting, and it has been implement
 
 ### Installation
 
+* Clone this repository
+
+* Install the requirements using Python 3:
 ```
 python3 -m pip install -r requirements.txt
 ```
+
+* Clone and build `abc`: https://github.com/berkeley-abc/abc (required for combinational equivalence checking)
+
+* Add the path to the executable of `abc` to your PATH variable
 
 ### Run experiments
 
