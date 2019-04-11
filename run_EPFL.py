@@ -1,6 +1,7 @@
 import cirkit
 import json
 import os
+import subprocess
 
 benchmarks = os.listdir('./benchmarks_EPFL/')
 
@@ -11,9 +12,11 @@ print("Loaded database")
 count = 1
 for benchmark in benchmarks:
     print("*******************")
-    benchmark = benchmark.split('.v')[0]
-    if os.path.exists(f"results_EPFL/{benchmark}.v"):
+    if "DS" in benchmark: 
         continue
+    benchmark = benchmark.split('.v')[0]
+    #if os.path.exists(f"results_EPFL/{benchmark}.v"):
+        #continue
 
     cirkit.read_verilog(filename=f"benchmarks_EPFL/{benchmark}.v", xag=True)
     ps = cirkit.ps(xag=True, silent=True)
@@ -34,11 +37,20 @@ for benchmark in benchmarks:
     cirkit.write_verilog(xag=True, filename=f"results_EPFL/{benchmark}.v")
     cirkit.store(clear=True, xag=True) 
 
+    subprocess.call([ 'abc -c \"cec -n benchmarks_EPFL/%s.v results_EPFL/%s.v\" &> abc.log' % (benchmark, benchmark) ], shell=True )
+    with open('abc.log') as f:
+        lines = f.readlines()
+        if lines[2][:23] == "Networks are equivalent":
+            print('[i] Networks are equivalent')
+        else:
+            print('[e] verification after optimization failed')
+
     if and_final < and_init:
         cirkit.read_verilog(filename=f"results_EPFL/{benchmark}.v", xag=True)
     else:
         with open(f"results_EPFL/{benchmark}.json", "w") as f:
             f.write(json.dumps({'and_init': and_init, 'xor_init': xor_init, 'and_final': and_final, 'xor_final': xor_final, 'time_total': time_total, 'and_final_sat': '//', 'xor_final_sat': '//', 'time_total_sat': '//'}))
+        continue
 
     and_final_sat = and_final
     and_init_sat = and_init
@@ -68,3 +80,10 @@ for benchmark in benchmarks:
     with open(f"results_EPFL/{benchmark}.json", "w") as f:
         f.write(json.dumps({'and_init': and_init, 'xor_init': xor_init, 'and_final': and_final, 'xor_final': xor_final, 'time_total': time_total, 'and_final_sat': and_final_sat, 'xor_final_sat': xor_final_sat, 'time_total_sat': time_total_sat, 'iter': count}))
 
+    subprocess.call([ 'abc -c \"cec -n benchmarks_EPFL/%s.v results_EPFL/%s_untilsat.v\" &> abc.log' % (benchmark, benchmark) ], shell=True )
+    with open('abc.log') as f:
+        lines = f.readlines()
+        if lines[2][:23] == "Networks are equivalent":
+            print('[i] Networks are equivalent')
+        else:
+            print('[e] verification after optimization failed')
