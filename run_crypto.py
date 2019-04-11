@@ -1,6 +1,7 @@
 import cirkit
 import json
 import os
+import subprocess
 
 benchmarks = os.listdir('./benchmarks_crypto/')
 
